@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AbstractFactoryVehicle
 {
-    class ElectricEngine : IEngine
+    public class ElectricEngine: IEngine
     {
         public void Start()
         {
-            Console.WriteLine("Electric Engine Started");
+            Console.WriteLine("Gasoline engine started with a roar.");
         }
     }
 }
