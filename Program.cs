@@ -4,18 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System;
+
 namespace AbstractFactoryVehicle
 {
-    public class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            IVehicleFactory factory = new ElectricVehicleFactory();
-            IVehicle truck = factory.CreateTruck();
+            Console.WriteLine("=== Gasoline Vehicles ===");
+            CreateVehicles(new GasolineVehicleFactory());
+
+            Console.WriteLine();
+
+            Console.WriteLine("=== Electric Vehicles ===");
+            CreateVehicles(new ElectricVehicleFactory());
+
+            Console.ReadKey();
+        }
+
+        static void CreateVehicles(IVehicleFactory factory)
+        {
             IVehicle car = factory.CreateCar();
-            IEngine engine = factory.CreateEngine();
             car.ShowDetails();
+
+            IVehicle truck = factory.CreateTruck();
             truck.ShowDetails();
+
+            IEngine engine = factory.CreateEngine();
+            Console.Write("Standalone engine -> ");
             engine.Start();
         }
     }
