@@ -4,13 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AbstractFactoryVehicle
 {
-    class GasolineCar : IVehicle
+    public class GasolineCar: IVehicle
     {
+        private readonly IEngine _engine;
+
+        public GasolineCar(IEngine engine)
+        {
+            _engine = engine;
+        }
+
         public void ShowDetails()
         {
-            Console.WriteLine("Gasoline Car");
+            Console.WriteLine("This is a Gasoline Car.");
+            _engine.Start();
         }
     }
 }
